@@ -2,6 +2,8 @@ package com.codeup.blogapp.models;
 
 //import jakarta.persistence.*;
 
+import java.util.List;
+
 //@Entity
 //@Table(name = "posts")
 public class Post {
