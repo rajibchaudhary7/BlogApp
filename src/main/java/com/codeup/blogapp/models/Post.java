@@ -12,11 +12,15 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, length = 150)
+    @Column(unique = true, length = 150)
     private String title;
 
     @Column(nullable = false, length = 1000)
     private String body;
+
+    @ManyToOne
+    @JoinColumn (name = "user_id")
+    private User user;
 
     public Post() {}
 
@@ -53,5 +57,13 @@ public class Post {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
