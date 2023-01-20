@@ -6,9 +6,9 @@
     <nav th:replace="partials :: navbar">
     </nav>
     <h1>Welcome To My Site!</h1>
-    <div th:each="x : ${allPosts}">
-        <p th:text="${x.title}" />
-        <p th:text="${x.body}" />
+    <div th:each="post : ${posts}">
+        <p th:text="${post.getTitle()}" />
+        <p th:text="${post.getBody()}" />
     </div>
 </body>
     <footer th:replace="partials :: footer">

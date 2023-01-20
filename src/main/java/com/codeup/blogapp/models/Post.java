@@ -1,21 +1,21 @@
 package com.codeup.blogapp.models;
 
-//import jakarta.persistence.*;
+import jakarta.persistence.*;
 
 import java.util.List;
 
-//@Entity
-//@Table(name = "posts")
+@Entity
+@Table(name = "posts")
 public class Post {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-//    @Column(nullable = false, length = 150)
+    @Column(nullable = false, length = 150)
     private String title;
 
-//    @Column(nullable = false)
+    @Column(nullable = false, length = 1000)
     private String body;
 
     public Post() {}
