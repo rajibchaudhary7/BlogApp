@@ -55,7 +55,8 @@ public class PostController {
 
     @GetMapping("/posts/create")
     public String getForm(Model model){
-        model.addAttribute("post", new Post());
+        Post post = new Post();
+        model.addAttribute("post", post);
         return "posts/create";
     }
 
