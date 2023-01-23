@@ -9,6 +9,13 @@
     <div th:each="post : ${posts}">
         <p th:text="${post.getTitle()}" />
         <p th:text="${post.getBody()}" />
+
+        <form name="view" th:action="${'/posts/' + post.getId()}" method="get">
+            <button type="submit">View</button>
+        </form>
+        <form name="edit" th:action="${'/posts/' + post.getId() + '/edit'}" method="get">
+        <button type="submit">Edit</button>
+        </form>
     </div>
 </body>
     <footer th:replace="partials :: footer">

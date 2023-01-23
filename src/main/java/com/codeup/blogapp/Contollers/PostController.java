@@ -29,16 +29,33 @@ public class PostController {
 
     @GetMapping(path = "/posts/{id}")
     public String viewPost(@PathVariable long id, Model model){
-        model.addAttribute("title", "Individual Post");
-        model.addAttribute("post", postDao.findById(id));
+//        model.addAttribute("title", "Individual Post");
+//        model.addAttribute("post", postDao.findById(id));
         Post post = postDao.getReferenceById(id);
         User user = userDao.getReferenceById(post.getUser().getId());
         model.addAttribute("postTitle", post.getTitle());
         model.addAttribute("postBody", post.getBody());
-        model.addAttribute("postID", post.getId());
+//        model.addAttribute("postID", post.getId());
         model.addAttribute("userEmail", user.getEmail());
-        model.addAttribute("user", user);
+//        model.addAttribute("user", user.getId());
         return "posts/show";
+    }
+
+    @GetMapping(path = "/posts/{id}/edit")
+    public String getEdit(@PathVariable long id, Model model){
+//        model.addAttribute("title", "Edit Post");
+        Post post = postDao.getReferenceById(id);
+        model.addAttribute("post", post);
+        return "posts/edit";
+    }
+
+    @PostMapping(path = "/posts/{id}/edit")
+    public String postEdit(@PathVariable long id, @RequestParam String title, @RequestParam String body){
+        Post post = postDao.getReferenceById(id);
+        post.setTitle(title);
+        post.setBody(body);
+        postDao.save(post);
+        return "redirect:/posts";
     }
 
 //    @GetMapping("/posts/create")
