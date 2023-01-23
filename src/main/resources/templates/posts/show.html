@@ -8,8 +8,9 @@
 <main class="container">
     <h1>Posts</h1>
 
-    <h3><span th:text="${post.title}"></span></h3>
-    <p><span th:text="${post.body}"></span></p>
+    <h3><span th:text="${postTitle}"></span></h3>
+    <p><span th:text="${postBody}"></span></p>
+    <p><span th:text="${userEmail}"></span></p>
 </main>
 
 <footer th:replace="partials :: footer"></footer>
