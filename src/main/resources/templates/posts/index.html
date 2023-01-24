@@ -5,10 +5,10 @@
 <body>
     <nav th:replace="partials :: navbar">
     </nav>
-    <h1>Welcome To My Site!</h1>
-    <div th:each="post : ${posts}">
+    <h1 class="abc text-center">Welcome To My Site!</h1>
+    <div class="container text-center" th:each="post : ${posts}">
         <p th:text="${post.getTitle()}" />
-        <p th:text="${post.getBody()}" />
+<!--        <p th:text="${post.getBody()}" />-->
 
         <form name="view" th:action="${'/posts/' + post.getId()}" method="get">
             <button type="submit">View</button>
@@ -16,7 +16,7 @@
         <form name="edit" th:action="${'/posts/' + post.getId() + '/edit'}" method="get">
         <button type="submit">Edit</button>
         </form>
-    </div>
+
 </body>
     <footer th:replace="partials :: footer">
     </footer>
