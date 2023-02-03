@@ -28,4 +28,7 @@
 //        }
 //        return postDao.findAll();
 //    }
+//    public Post viewPost(long id){
+//        return postDao.getReferenceById(id);
+//    }
 //}
